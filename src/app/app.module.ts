@@ -5,6 +5,9 @@ import {AppComponent} from './app.component';
 import {ConsumerComponent} from './consumer/consumer.component';
 import {counterReducer} from './counter.reducer';
 import {StoreModule} from '@ngrx/store';
+import {featureKey} from './counter.selectors';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,9 @@ import {StoreModule} from '@ngrx/store';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({count: counterReducer}),
+    StoreModule.forRoot({}),
+    StoreModule.forFeature(featureKey, {count: counterReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

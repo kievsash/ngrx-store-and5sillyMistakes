@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { increment } from './counter.actions';
-import {select, Store} from '@ngrx/store';
+import {Store} from '@ngrx/store';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
