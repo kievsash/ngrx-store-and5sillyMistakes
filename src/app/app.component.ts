@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
-
+import { increment } from './counter.actions';
+import {select, Store} from '@ngrx/store';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngrx-store-and5sillyMistakes';
+
+  constructor(private store: Store<{ count: number }>) {
+  }
+
+  increment() {
+    this.store.dispatch(increment());
+  }
 }
