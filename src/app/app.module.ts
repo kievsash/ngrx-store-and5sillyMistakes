@@ -17,8 +17,8 @@ import { environment } from '../environments/environment';
   imports: [
     StoreModule.forFeature(featureKey, {count: counterReducer}),
     BrowserModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
