@@ -4,7 +4,7 @@ import { increment } from './counter.actions';
 export const initialState = 0;
 
 const counterReducerFunc = createReducer(initialState,
-  on(increment, state => state + 1)
+  on(increment, (state, {value}) => state + 1 + value)
 );
 
 export function counterReducer(state, action) {
