@@ -14,6 +14,7 @@ export class ConsumerComponent {
 
   constructor(private store: Store<AppState>) {
     this.count$ = store.pipe(select(selectFeatureCount));
+    // this.count$ = store.pipe(select(state => state.someFeature.count));
   }
 
 }

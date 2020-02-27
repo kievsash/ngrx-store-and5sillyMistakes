@@ -15,10 +15,10 @@ import { environment } from '../environments/environment';
     ConsumerComponent
   ],
   imports: [
-    BrowserModule,
-    StoreModule.forRoot({}),
     StoreModule.forFeature(featureKey, {count: counterReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    BrowserModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]
