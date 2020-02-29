@@ -17,10 +17,10 @@ import {AppEffects} from './app.effects';
     ConsumerComponent
   ],
   imports: [
-    StoreModule.forRoot({}),
     StoreModule.forFeature(featureKey, {items: itemsReducer}),
-    BrowserModule,
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    BrowserModule,
     EffectsModule.forRoot([AppEffects])
   ],
   exports: [EffectsModule],
