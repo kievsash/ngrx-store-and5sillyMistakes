@@ -3,13 +3,13 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {ConsumerComponent} from './consumer/consumer.component';
-import {counterReducer} from './counter.reducer';
+import {itemsReducer} from './items.reducer';
 import {StoreModule} from '@ngrx/store';
-import {featureKey} from './counter.selectors';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
+import {featureKey} from './items.selectors';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
+import {AppEffects} from './app.effects';
 
 @NgModule({
   declarations: [
@@ -18,9 +18,9 @@ import { AppEffects } from './app.effects';
   ],
   imports: [
     StoreModule.forRoot({}),
-    StoreModule.forFeature(featureKey, {count: counterReducer}),
+    StoreModule.forFeature(featureKey, {items: itemsReducer}),
     BrowserModule,
-    //StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([AppEffects])
   ],
   exports: [EffectsModule],

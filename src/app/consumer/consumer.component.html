@@ -1,7 +1,8 @@
-<h2>Inside consumer component we display state.count:</h2>
-<div>Current Count:
+<h2>Inside consumer component we display state.someFeature.items:</h2>
+<div>Current items:<br>
 
-  <ng-container *ngFor="let item of (count$ | async)">
+  <ng-container *ngFor="let item of (items$ | async); let i = index">
     <input type="checkbox" [checked]="item.checked">
+    checkbox {{i}}
   </ng-container>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {AppState, FeatureState, selectFeatureCount} from '../counter.selectors';
+import {AppState, selectItems} from '../items.selectors';
 
 @Component({
   selector: 'app-consumer',
@@ -10,11 +10,10 @@ import {AppState, FeatureState, selectFeatureCount} from '../counter.selectors';
 })
 export class ConsumerComponent {
 
-  count$: Observable<number>;
+  items$: Observable<number>;
 
   constructor(private store: Store<AppState>) {
-    this.count$ = store.pipe(select(selectFeatureCount));
-    // this.count$ = store.pipe(select(state => state.someFeature.count));
+    this.items$ = store.pipe(select(selectItems));
   }
 
 }

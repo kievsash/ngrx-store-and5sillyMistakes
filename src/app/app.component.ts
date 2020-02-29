@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {multiply, increment} from './counter.actions';
 import {Store} from '@ngrx/store';
+import {refetch, select, unselect} from './items.actions';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,14 @@ export class AppComponent {
   constructor(private store: Store<{ count: number }>) {
   }
 
-  increase5() {
-    this.store.dispatch(multiply());
+  selectAll() {
+    this.store.dispatch(select());
   }
+  unselectAll() {
+    this.store.dispatch(unselect());
+  }
+  refetch() {
+    this.store.dispatch(refetch());
 
+  }
 }

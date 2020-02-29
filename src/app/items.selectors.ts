@@ -3,7 +3,7 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 export const featureKey = 'someFeature';
 
 export interface FeatureState {
-  count: number;
+  items: number;
 }
 
 export interface AppState {
@@ -12,7 +12,7 @@ export interface AppState {
 
 export const selectFeature = createFeatureSelector<AppState, FeatureState>(featureKey);
 
-export const selectFeatureCount = createSelector(
+export const selectItems = createSelector(
   selectFeature,
-  (state: FeatureState) => state.count
+  (state: FeatureState) => state.items
 );

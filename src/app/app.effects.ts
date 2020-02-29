@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {increment, multiply, reload} from './counter.actions';
-import {tap, map, mergeMap} from 'rxjs/operators';
-import {Action} from '@ngrx/store';
+import {save, refetch} from './items.actions';
+import {map, mergeMap} from 'rxjs/operators';
 import {of} from 'rxjs';
-import {initialState} from './counter.reducer';
+import {initialState} from './items.reducer';
 
 @Injectable()
 export class AppEffects {
@@ -13,9 +12,9 @@ export class AppEffects {
 
   loadMovies$ = createEffect(() => {
     return this.actions$.pipe(
-        ofType(multiply),
-        mergeMap(() => of([...initialState])),
-        map((value) => reload({newValue: value}))
+        ofType(refetch),
+        mergeMap(() => of([...initialState])), // mocking backend
+        map((value) => save({items: value}))
       );
     }
   );
