@@ -1,7 +1,7 @@
 import {createReducer, on} from '@ngrx/store';
 import {unselect, select, save} from './items.actions';
 
-export const initialState = Array.from(Array(300).keys()).map((item, index) => ({
+export const initialState = Array.from(Array(50).keys()).map((item, index) => ({
   num: index,
   checked: false,
   validity: true,
@@ -16,7 +16,7 @@ export const initialState = Array.from(Array(300).keys()).map((item, index) => (
   }
 }));
 
-const counterReducerFunc = createReducer(initialState,
+export const itemsReducer = createReducer(initialState,
   on(unselect, (state, value) => {
     return state.map(item => ({...item, checked: false}));
   }),
@@ -28,6 +28,6 @@ const counterReducerFunc = createReducer(initialState,
   }),
 );
 
-export function itemsReducer(state, action) {
-  return counterReducerFunc(state, action);
-}
+// export function itemsReducer(state, action) {
+//   return counterReducerFunc(state, action);
+// }
